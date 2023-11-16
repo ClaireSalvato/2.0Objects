@@ -74,6 +74,24 @@ public class Astronaut {
         if(xpos<0){
             xpos = 940;
         }
+
+        // wrap north
+        if(ypos<0){
+            ypos = 640;
+        }
+
+        //south wall
+        if(ypos>640){
+            ypos=0;
+        }
+
+        //wrap for west
+        if(xpos>940){
+            xpos = 0;
+        }
+
+        xpos = xpos + dx;
+        ypos = ypos + dy;
     }
 }
 
