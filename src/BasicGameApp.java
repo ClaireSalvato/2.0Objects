@@ -107,6 +107,10 @@ public class BasicGameApp implements Runnable {
 			System.out.println("Crash");
 		}
 
+		if(astro.rec.intersects(astro2.rec)){
+			System.out.println("Claire");
+		}
+
 	}
 	
    //Pauses or sleeps the computer for the amount specified in milliseconds
