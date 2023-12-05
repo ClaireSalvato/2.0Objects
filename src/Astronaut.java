@@ -18,6 +18,8 @@ public class Astronaut {
 
     public Rectangle rec;
 
+    public boolean isCrashing;
+
 
     // METHOD DEFINITION SECTION
 
@@ -44,6 +46,7 @@ public class Astronaut {
 
         xpos = xpos + dx;
         ypos = ypos + dy;
+        rec = new Rectangle(xpos, ypos, width, height);
 
  
     }
@@ -69,18 +72,19 @@ public class Astronaut {
 
         xpos = xpos + dx;
         ypos = ypos + dy;
+        rec = new Rectangle(xpos, ypos, width, height);
 
     }
 
     public void wrap(){
         //wrap east wall
         if(xpos<0){
-            xpos = 940;
+            xpos = 1000-width;
         }
 
         // wrap north
         if(ypos<0){
-            ypos = 640;
+            ypos = 700-height;
         }
 
         //south wall

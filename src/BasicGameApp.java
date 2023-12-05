@@ -103,15 +103,25 @@ public class BasicGameApp implements Runnable {
 		//calls the move() code in the objects
 		astro2.bounce();
 
-		if(astro.rec.intersects(astro2.rec)) {
+		if(astro.rec.intersects(astro2.rec) && astro.isCrashing == false) {
+				astro.isCrashing = false;
 			System.out.println("Crash");
+			astro.dx=50;
+			//astro.dx = -astro.dx;
+			//astro2.dx = -astro.dx;
+			astro.height=astro.height+50;
+			astro.isCrashing = true;
 		}
 
-		if(astro.rec.intersects(astro2.rec)){
-			System.out.println("Claire");
+		if(astro.rec.intersects(astro2.rec) == false){
+			astro.isCrashing = false;
 		}
 
-	}
+
+
+		}
+
+
 	
    //Pauses or sleeps the computer for the amount specified in milliseconds
    public void pause(int time ){
