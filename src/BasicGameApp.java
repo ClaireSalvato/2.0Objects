@@ -45,6 +45,7 @@ public class BasicGameApp implements Runnable {
    //These are things that are made up of more than one variable type
 	private Astronaut astro;
 	private Astronaut astro2;
+	private Astronaut astro3;
 
 
    // Main method definition
@@ -68,6 +69,7 @@ public class BasicGameApp implements Runnable {
 		astroPic = Toolkit.getDefaultToolkit().getImage("astronaut.png"); //load the picture
 		astro = new Astronaut(10,100);
 		astro2 = new Astronaut(500,100);
+		astro3 = new Astronaut (10,100);
 
 		background = Toolkit.getDefaultToolkit().getImage("seasonofthewitch.jpeg"); //load the picture
 
@@ -103,6 +105,9 @@ public class BasicGameApp implements Runnable {
 		//calls the move() code in the objects
 		astro2.bounce();
 
+		//calls the move() code in the objects
+		astro3.bounce();
+
 		if(astro.rec.intersects(astro2.rec) && astro.isCrashing == false) {
 				astro.isCrashing = false;
 			System.out.println("Crash");
@@ -116,6 +121,17 @@ public class BasicGameApp implements Runnable {
 		if(astro.rec.intersects(astro2.rec) == false){
 			astro.isCrashing = false;
 		}
+
+		if(astro.rec.intersects(astro3.rec) && astro.isCrashing == false) {
+				astro.isCrashing = false;
+			System.out.println("Crash");
+			astro.dx=50;
+			//astro.dx = -astro.dx;
+			//astro3.dx = -astro.dx;
+			astro.height=astro.height+50;
+			astro.isCrashing = true;
+
+	}
 
 
 
@@ -175,6 +191,7 @@ public class BasicGameApp implements Runnable {
       //draw the image of the astronaut
 		g.drawImage(astroPic, astro.xpos, astro.ypos, astro.width, astro.height, null);
 		g.drawImage(astroPic, astro2.xpos, astro2.ypos, astro2.width, astro2.height, null);
+		g.drawImage(astroPic, astro3.xpos, astro3.ypos, astro3.width, astro3.height, null);
 
 
 		g.dispose();
